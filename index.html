@@ -44,43 +44,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 48px;
-      background: rgba(14,14,14,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(201,168,76,0.15);
-    }
-    nav .logo {
-      font-family: var(--font-head);
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 0.12em;
-      text-decoration: none;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 36px;
-    }
-    nav ul a {
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      color: var(--text);
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-    nav ul a:hover { color: var(--gold); }
 
     /* ─── HERO ─── */
     #hero {
@@ -735,27 +698,48 @@
     footer {
       background: var(--dark2);
       border-top: 1px solid rgba(201,168,76,0.12);
-      padding: 28px 40px;
+      padding: 40px 40px 32px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: gap;
-      gap: 16px;
+      gap: 24px;
     }
     footer .footer-logo {
       font-family: var(--font-head);
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: var(--gold);
       letter-spacing: 0.12em;
     }
+    footer .footer-nav-page {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      width: 100%;
+    }
+    footer .footer-nav-page a {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    footer .footer-nav-page a:hover { color: var(--gold); }
     footer nav ul {
       display: flex;
       gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
       list-style: none;
     }
     footer nav ul a {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 600;
       letter-spacing: 0.15em;
       color: var(--muted);
@@ -764,6 +748,11 @@
       transition: color 0.3s;
     }
     footer nav ul a:hover { color: var(--gold); }
+    footer .footer-copy {
+      font-size: 0.62rem;
+      color: rgba(160,144,112,0.5);
+      letter-spacing: 0.1em;
+    }
 
     /* ─── SCROLL INDICATOR ─── */
     .scroll-down {
@@ -798,8 +787,6 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      nav { padding: 14px 24px; }
-      nav ul { gap: 20px; }
       .container, .container-wide { padding: 0 24px; }
       section { padding: 72px 0; }
       #about .inner,
@@ -808,25 +795,12 @@
       #clients .inner { grid-template-columns: 1fr; gap: 48px; }
       .testi-grid { grid-template-columns: 1fr; }
       .testi-card.featured { grid-column: span 1; }
-      footer { flex-direction: column; text-align: center; }
-      footer nav ul { flex-wrap: wrap; justify-content: center; }
-      nav ul { display: none; }
+      footer { padding: 32px 24px 24px; }
+      footer .footer-nav-page { gap: 16px; }
     }
   </style>
 </head>
 <body>
-
-<!-- ═══ NAV ═══ -->
-<nav>
-  <a href="#hero" class="logo">meldorado</a>
-  <ul>
-    <li><a href="#about">Start</a></li>
-    <li><a href="#coaching">Coaching</a></li>
-    <li><a href="#clients">Konzeption | Design</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Kontakt</a></li>
-  </ul>
-</nav>
 
 <!-- ═══ HERO ═══ -->
 <section id="hero">
@@ -841,7 +815,7 @@
     </p>
     <div class="hero-btns">
       <a href="#coaching" class="btn-gold">Coaching</a>
-      <a href="#clients" class="btn-outline">Konzeption | Design</a>
+      <a href="#video-section" class="btn-outline">Konzeption | Design</a>
       <a href="https://myablefy.com/s/melbartholomae" target="_blank" class="btn-outline">Shop</a>
       <a href="https://open.spotify.com/show/6gQhermt39CTXkxk77gfVo" target="_blank" class="btn-outline">Podcast auf Spotify</a>
     </div>
@@ -893,7 +867,7 @@
         </p>
         <div class="nav-links">
           <a href="#coaching">Coaching</a>
-          <a href="#clients">Konzeption | Design</a>
+          <a href="#video-section">Konzeption | Design</a>
           <a href="https://open.spotify.com/show/6gQhermt39CTXkxk77gfVo" target="_blank">Podcast auf Spotify</a>
           <a href="https://myablefy.com/s/melbartholomae" target="_blank">Zu den Angeboten im Shop</a>
         </div>
@@ -989,7 +963,7 @@
             <li>Expertin für authentisches Branding und Marketing</li>
           </ul>
           <p>
-            <a href="#clients" class="btn-outline" style="display:inline-block; margin-bottom:20px;">&gt; Kunden & Kundenstimmen</a>
+            <a href="#testimonials" class="btn-outline" style="display:inline-block; margin-bottom:20px;">&gt; Kunden & Kundenstimmen</a>
           </p>
           <p>Info und Buchung unter <a href="mailto:mel@meldorado.de" style="color:var(--gold);">mel(at)meldorado.de</a></p>
           <div class="social-links" style="margin-top:28px;">
@@ -1209,15 +1183,27 @@
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-logo">meldorado</div>
+
+  <!-- Seitennavigation -->
+  <ul class="footer-nav-page">
+    <li><a href="#hero">Start</a></li>
+    <li><a href="#coaching">Coaching</a></li>
+    <li><a href="#video-section">Konzeption | Design</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+
+  <!-- Rechtliches -->
   <nav>
     <ul>
-      <li><a href="#hero">Start</a></li>
-      <li><a href="#">Datenschutz</a></li>
-      <li><a href="#">Impressum</a></li>
+      <li><a href="https://www.meldorado.net/datenschutz" target="_blank">Datenschutz</a></li>
+      <li><a href="https://www.meldorado.net/impressum-1" target="_blank">Impressum</a></li>
       <li><a href="https://www.meldorado.net/_files/ugd/963b8f_490e0faf07d344a58c32c22ce70ad883.pdf" target="_blank">AGB meldorado</a></li>
-      <li><a href="#">AGB Coaching</a></li>
+      <li><a href="https://www.meldorado.net/agbcoaching" target="_blank">AGB Coaching</a></li>
     </ul>
   </nav>
+
+  <p class="footer-copy">© Melanie Bartholomae-Muehle · mel(at)meldorado.de</p>
 </footer>
 
 </body>
