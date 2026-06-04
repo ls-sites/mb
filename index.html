@@ -285,27 +285,29 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: center;
-    }
-    #newsletter .phone-mock {
-      display: flex;
-      justify-content: center;
-    }
-    #newsletter .phone-mock img {
-      max-width: 280px;
-      width: 100%;
-      filter: drop-shadow(0 20px 60px rgba(201,168,76,0.2));
+      align-items: start;
     }
     #newsletter .text p {
       font-size: 0.9rem;
       color: var(--text);
       margin-bottom: 20px;
     }
+    #newsletter .right-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+    #newsletter .phone-mock img {
+      max-width: 260px;
+      width: 100%;
+      filter: drop-shadow(0 20px 60px rgba(201,168,76,0.2));
+    }
     #newsletter .welcome-gift {
       background: rgba(201,168,76,0.07);
       border: 1px solid rgba(201,168,76,0.25);
       padding: 20px 24px;
-      margin: 28px 0;
+      width: 100%;
     }
     #newsletter .welcome-gift .gift-label {
       font-size: 0.62rem;
@@ -324,7 +326,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 28px;
+      width: 100%;
     }
     #newsletter input {
       background: rgba(255,255,255,0.05);
@@ -365,6 +367,32 @@
       pointer-events: none;
       letter-spacing: 0.05em;
     }
+    #coaching .coaching-header {
+      text-align: center;
+      margin-bottom: 72px;
+      position: relative;
+      z-index: 1;
+    }
+    #coaching .coaching-header .eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    #coaching .coaching-header h2 {
+      font-family: var(--font-head);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+    }
+    #coaching .coaching-header h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
     #coaching .inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -372,21 +400,6 @@
       align-items: start;
       position: relative;
       z-index: 1;
-    }
-    #coaching .coaching-title {
-      font-family: var(--font-head);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
-    #coaching .coaching-subtitle {
-      font-family: var(--font-head);
-      font-size: clamp(1rem, 2vw, 1.5rem);
-      font-style: italic;
-      color: var(--gold-light);
-      margin-bottom: 40px;
     }
     #coaching p {
       font-size: 0.9rem;
@@ -416,48 +429,21 @@
       color: var(--gold-light);
       margin: 28px 0 8px;
     }
+    #coaching .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
     #coaching .badges {
       display: flex;
       gap: 24px;
       align-items: center;
       flex-wrap: wrap;
-      margin-top: 40px;
     }
     #coaching .badges img {
       height: 90px;
       width: auto;
       object-fit: contain;
-    }
-    #coaching .design-block {
-      background: var(--dark3);
-      border: 1px solid rgba(201,168,76,0.15);
-      padding: 48px 40px;
-    }
-    #coaching .design-block .section-label { margin-bottom: 20px; }
-    #coaching .design-block p {
-      font-size: 0.88rem;
-      margin-bottom: 16px;
-    }
-    #coaching .design-block ul {
-      list-style: none;
-      margin: 20px 0 28px;
-    }
-    #coaching .design-block ul li {
-      font-size: 0.88rem;
-      color: var(--text);
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(201,168,76,0.1);
-      padding-left: 20px;
-      position: relative;
-    }
-    #coaching .design-block ul li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-    }
-    #coaching .social-links {
-      margin-top: 28px;
     }
     #coaching .social-links a {
       display: inline-flex;
@@ -472,6 +458,38 @@
       transition: color 0.3s;
     }
     #coaching .social-links a:hover { color: var(--gold-light); }
+
+    /* ─── DESIGN BLOCK (im Video-Abschnitt) ─── */
+    .design-block {
+      background: var(--dark3);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 40px;
+      margin-top: 60px;
+    }
+    .design-block .inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .design-block ul {
+      list-style: none;
+      margin: 16px 0 24px;
+    }
+    .design-block ul li {
+      font-size: 0.88rem;
+      color: var(--text);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      padding-left: 20px;
+      position: relative;
+    }
+    .design-block ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
 
     /* ─── VIDEO SECTION ─── */
     #video-section {
@@ -509,134 +527,186 @@
     .video-wrapper .play-btn svg { fill: #000; margin-left: 4px; }
 
     /* ─── CLIENTS ─── */
-    #clients {
-      background: var(--dark);
-    }
-    #clients .inner {
+    #clients { background: var(--dark); }
+    #clients .top-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
       align-items: start;
+      margin-bottom: 60px;
     }
-    #clients .client-list {
-      columns: 2;
-      column-gap: 24px;
-      margin-top: 16px;
-    }
-    #clients .client-list span {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      transition: color 0.3s;
-    }
-    #clients .client-list span:hover { color: var(--gold); }
-    #clients .awards {
+    #clients .left-col .awards {
       display: flex;
-      gap: 28px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      margin-top: 36px;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 32px;
     }
-    #clients .awards img {
-      height: 110px;
+    #clients .left-col .awards img {
+      height: 100px;
       width: auto;
       object-fit: contain;
       filter: grayscale(30%);
       opacity: 0.85;
       transition: all 0.3s;
     }
-    #clients .awards img:hover { filter: none; opacity: 1; }
-    #clients .portfolio-slider {
-      margin-top: 48px;
-    }
-    #clients .portfolio-slider .slides {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    #clients .portfolio-slider .slide {
+    #clients .left-col .awards img:hover { filter: none; opacity: 1; }
+    #clients .gallery-carousel {
       position: relative;
       overflow: hidden;
     }
-    #clients .portfolio-slider .slide img {
+    #clients .gallery-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    #clients .gallery-track .slide {
+      min-width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    #clients .gallery-track .slide img {
       width: 100%;
-      height: 90px;
+      height: 260px;
       object-fit: cover;
-      filter: grayscale(60%);
-      transition: all 0.4s;
+      filter: grayscale(40%);
+      transition: filter 0.4s;
+      display: block;
     }
-    #clients .portfolio-slider .slide:hover img {
-      filter: none;
-      transform: scale(1.04);
-    }
-    #clients .portfolio-slider .slide .caption {
+    #clients .gallery-track .slide:hover img { filter: none; }
+    #clients .gallery-track .slide .caption {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      background: rgba(0,0,0,0.7);
-      padding: 6px 10px;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
+      background: rgba(0,0,0,0.75);
+      padding: 10px 14px;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
       color: var(--gold);
       text-transform: uppercase;
     }
+    #clients .gallery-controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      justify-content: flex-end;
+    }
+    #clients .gallery-controls button {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,168,76,0.4);
+      background: transparent;
+      color: var(--gold);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    #clients .gallery-controls button:hover { background: var(--gold); color: #000; }
+    #clients .client-list {
+      columns: 3;
+      column-gap: 32px;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      padding-top: 48px;
+    }
+    #clients .client-list span {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: color 0.3s;
+    }
+    #clients .client-list span:hover { color: var(--gold); }
 
-    /* ─── TESTIMONIALS ─── */
+    /* ─── TESTIMONIALS CAROUSEL ─── */
     #testimonials {
       background: var(--dark2);
       border-top: 1px solid rgba(201,168,76,0.12);
     }
-    #testimonials .section-title { text-align: center; margin-bottom: 60px; }
-    .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-bottom: 60px;
+    .carousel-wrap { position: relative; overflow: hidden; }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
     }
     .testi-card {
+      min-width: 100%;
       background: var(--dark);
-      border: 1px solid rgba(201,168,76,0.12);
-      padding: 36px 28px;
+      border: 1px solid rgba(201,168,76,0.18);
+      padding: 56px 72px;
       position: relative;
+      box-sizing: border-box;
     }
     .testi-card::before {
       content: '"';
       font-family: var(--font-head);
-      font-size: 5rem;
+      font-size: 8rem;
       color: var(--gold);
-      opacity: 0.2;
+      opacity: 0.12;
       position: absolute;
-      top: 10px; left: 24px;
+      top: 16px; left: 48px;
       line-height: 1;
     }
     .testi-card p {
-      font-size: 0.85rem;
-      line-height: 1.8;
-      color: var(--text);
-      margin-bottom: 20px;
+      font-family: var(--font-head);
+      font-size: clamp(1rem, 2vw, 1.35rem);
       font-style: italic;
+      line-height: 1.75;
+      color: var(--white);
+      margin-bottom: 32px;
+      max-width: 800px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
+    .testi-card .author, .testi-card .role { text-align: center; }
     .testi-card .author {
       font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.18em;
       color: var(--gold);
       text-transform: uppercase;
     }
     .testi-card .role {
       font-size: 0.72rem;
       color: var(--muted);
-      margin-top: 4px;
+      margin-top: 6px;
     }
-    .testi-card.featured {
-      grid-column: span 2;
-      border-color: rgba(201,168,76,0.3);
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 36px;
     }
+    .carousel-btn {
+      width: 44px; height: 44px;
+      border: 1px solid rgba(201,168,76,0.4);
+      background: transparent;
+      color: var(--gold);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .carousel-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .carousel-dots span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.3);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .carousel-dots span.active { background: var(--gold); width: 20px; border-radius: 3px; }
     .coaching-testis {
-      margin-top: 48px;
+      margin-top: 64px;
       text-align: center;
     }
     .coaching-testis img {
@@ -791,10 +861,12 @@
       section { padding: 72px 0; }
       #about .inner,
       #newsletter .inner,
-      #coaching .inner,
-      #clients .inner { grid-template-columns: 1fr; gap: 48px; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .testi-card.featured { grid-column: span 1; }
+      #coaching .inner { grid-template-columns: 1fr; gap: 48px; }
+      #clients .top-row { grid-template-columns: 1fr; }
+      #clients .client-list { columns: 2; }
+      #clients .gallery { grid-template-columns: 1fr 1fr; }
+      .design-block .inner { grid-template-columns: 1fr; }
+      .testi-card { padding: 36px 28px; }
       footer { padding: 32px 24px 24px; }
       footer .footer-nav-page { gap: 16px; }
     }
@@ -880,9 +952,7 @@
 <section id="newsletter">
   <div class="container">
     <div class="inner">
-      <div class="phone-mock">
-        <img src="https://static.wixstatic.com/media/963b8f_3e7b1920f72941df922add85f64d1b05~mv2.png/v1/fill/w_370,h_328,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HandyHG.png" alt="Welcome Gift – Motivierende Hintergrundbilder" />
-      </div>
+      <!-- LINKS: Text -->
       <div class="text">
         <p class="section-label">Personal Brand Alchemy Community</p>
         <div class="gold-line left"></div>
@@ -893,6 +963,12 @@
         <p>
           Außerdem bekommst du hier immer wieder mal Boni oder Special Offers für meine Angebote, die ich sonst nicht auf Social Media teile.
         </p>
+      </div>
+      <!-- RECHTS: Bild + Gift-Box + Formular -->
+      <div class="right-col">
+        <div class="phone-mock">
+          <img src="https://static.wixstatic.com/media/963b8f_3e7b1920f72941df922add85f64d1b05~mv2.png/v1/fill/w_370,h_328,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HandyHG.png" alt="Welcome Gift – Motivierende Hintergrundbilder" />
+        </div>
         <div class="welcome-gift">
           <p class="gift-label">🎁 Dein Welcome-Gruß</p>
           <p>Hintergrundbilder, die dich jedesmal motivieren, wenn du aufs Handy schaust.</p>
@@ -913,96 +989,91 @@
 <!-- ═══ COACHING ═══ -->
 <section id="coaching">
   <div class="container">
-    <div style="text-align:center; margin-bottom: 80px;">
-      <p class="section-label">1:1 Begleitung</p>
-      <div class="gold-line"></div>
-      <img src="https://static.wixstatic.com/media/963b8f_01cc0cf742734d548250e353bf6af4bd~mv2.png/v1/fill/w_186,h_186,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo.png" alt="meldorado Logo" style="height:80px; margin: 0 auto 20px; display:block; opacity:0.9;" />
+    <!-- Logo als Abschnitts-Anfang -->
+    <div style="text-align:center; margin-bottom:40px;">
+      <img src="https://static.wixstatic.com/media/963b8f_01cc0cf742734d548250e353bf6af4bd~mv2.png/v1/fill/w_186,h_186,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo.png" alt="The Personal Brand Alchemist Logo" style="width:100px; height:100px; object-fit:contain; opacity:0.95;" />
     </div>
+    <!-- Header: Eyebrow + Titel -->
+    <div class="coaching-header">
+      <p class="eyebrow">BE THE BRAND</p>
+      <div class="gold-line"></div>
+      <h2><em>the Personal Brand</em> Alchemist</h2>
+    </div>
+
     <div class="inner">
+      <!-- LINKS: Text -->
       <div>
-        <p class="coaching-subtitle">the Personal Brand</p>
-        <h2 class="coaching-title">Alchemist</h2>
-        <p style="font-size:1rem; font-weight:700; letter-spacing:0.2em; color:var(--gold); text-transform:uppercase; margin-bottom:32px;">BE THE BRAND</p>
-
-        <p>
-          Ich zeige dir individuell in meiner 1:1-Begleitung, wie du deine Positionierung als Online-Experte/Coach in eine Premium fireblazing Personal Brand ausbaust.
-        </p>
-        <p>
-          Ich bündle in meiner Begleitung für dich meine Skills als zert. Coach, Master Energetikerin und Mentorin mit 20+ Jahren awardwinning Expertise in Branding/Marketing.
-        </p>
-
+        <p>Ich zeige dir individuell in meiner 1:1-Begleitung, wie du deine Positionierung als Online-Experte/Coach in eine Premium fireblazing Personal Brand ausbaust.</p>
+        <p>Ich bündle in meiner Begleitung für dich meine Skills als zert. Coach, Master Energetikerin und Mentorin mit 20+ Jahren awardwinning Expertise in Branding/Marketing.</p>
         <div class="prereq">
           <strong>Voraussetzung für die 1:1-Begleitung:</strong>
           Du hast schon eine Instagram™-Präsenz und ein laufendes Online-Business.
         </div>
-
         <div class="fire-tag">So are you ready to let your fire blaze?</div>
         <p>Dann schreib mir!</p>
         <p>Info und Buchung für 1:1-Begleitung unter <a href="mailto:mel@meldorado.de" style="color:var(--gold);">mel(at)meldorado.de</a></p>
-
-        <p style="font-style:italic; color:var(--gold-light); margin-top:20px;">Always with fun and fire!</p>
-
+        <p style="font-style:italic; color:var(--gold-light); margin-top:16px;">Always with fun and fire!</p>
         <a href="#testimonials" class="btn-outline" style="display:inline-block; margin-top:28px;">&gt; Kundenstimmen</a>
+      </div>
 
+      <!-- RECHTS: Badges + Referenzbild -->
+      <div class="right-col">
         <div class="badges">
           <img src="https://static.wixstatic.com/media/963b8f_cc29a6711549443d9cb9b9a0e10d0838~mv2.png/v1/fill/w_176,h_194,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/itc%20logo.png" alt="ITC Coaching Zertifikat" />
           <a href="https://www.provenexpert.com/mel-bartholomae-selbstwert-und-joyfulsuccess-coach/" target="_blank">
             <img src="https://static.wixstatic.com/media/963b8f_802d453eb5904c599566adf5dbf420b9~mv2.jpg/v1/fill/w_159,h_109,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ProvenExpert-Bewertungssiegel.jpg" alt="ProvenExpert Bewertungssiegel" />
           </a>
+          <img src="https://static.wixstatic.com/media/963b8f_8dfe312afadc4702b81f65c756bb83fe~mv2.png/v1/fill/w_646,h_446,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/963b8f_8dfe312afadc4702b81f65c756bb83fe~mv2.png" alt="Brand Alchemist Referenz" style="width:100%; height:auto; margin-top:8px;" />
         </div>
-      </div>
-
-      <div>
-        <div class="design-block">
-          <p class="section-label">Konzeption & Design</p>
-          <p>
-            Außerdem bin ich in meinem zweiten Unternehmen meldorado begeisterte…
-          </p>
-          <ul>
-            <li>Dipl.-Kommunikationsdesignerin</li>
-            <li>Expertin für authentisches Branding und Marketing</li>
-          </ul>
-          <p>
-            <a href="#testimonials" class="btn-outline" style="display:inline-block; margin-bottom:20px;">&gt; Kunden & Kundenstimmen</a>
-          </p>
-          <p>Info und Buchung unter <a href="mailto:mel@meldorado.de" style="color:var(--gold);">mel(at)meldorado.de</a></p>
-          <div class="social-links" style="margin-top:28px;">
-            <a href="https://www.instagram.com/melbartholomae/" target="_blank">
-              <img src="https://static.wixstatic.com/media/e1aa082f7c0747168d9cf43e77046142.png/v1/fill/w_60,h_60,al_c,q_85,enc_avif,quality_auto/e1aa082f7c0747168d9cf43e77046142.png" alt="Instagram" style="width:28px;height:28px;filter:brightness(0) invert(1);opacity:0.6;transition:opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'" />
-              Let´s connect on Instagram™!
-            </a>
-          </div>
-        </div>
-
-        <div style="margin-top:28px; padding:28px; background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.15);">
-          <img src="https://static.wixstatic.com/media/963b8f_a9bcda8d0e02446ebb5fc1545e104a52~mv2.png/v1/crop/x_93,y_0,w_1225,h_356/fill/w_380,h_110,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Personal%20Branding%20Referenz.png" alt="Personal Branding Referenz" style="width:100%; height:auto; display:block;" />
+        <div class="social-links">
+          <a href="https://www.instagram.com/melbartholomae/" target="_blank">
+            <img src="https://static.wixstatic.com/media/e1aa082f7c0747168d9cf43e77046142.png/v1/fill/w_60,h_60,al_c,q_85,enc_avif,quality_auto/e1aa082f7c0747168d9cf43e77046142.png" alt="Instagram" style="width:24px;height:24px;filter:brightness(0) invert(1);opacity:0.6;vertical-align:middle;margin-right:8px;" />
+            Let´s connect on Instagram™!
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ VIDEO (Carolin Focht Rebirth) ═══ -->
+<!-- ═══ VIDEO + KONZEPTION/DESIGN ═══ -->
 <section id="video-section">
   <div class="container">
+    <!-- Logo als Abschnitts-Anfang – volle Breite -->
+    <div style="width:100%; background:linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); padding:28px 0; text-align:center; margin-bottom:48px;">
+      <img src="https://static.wixstatic.com/media/963b8f_e11f2516c4724ea78ba217045ff56557.png/v1/fill/w_496,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/963b8f_e11f2516c4724ea78ba217045ff56557.png" alt="meldorado – Konzeption & Design Logo" style="max-width:320px; height:auto;" />
+    </div>
     <p class="section-label" style="text-align:center;">Rebranding | Case Study</p>
     <div class="gold-line"></div>
     <h2 class="section-title" style="text-align:center; margin-bottom:48px;">Konzeption / Design-Rebranding</h2>
-    <div style="max-width:800px; margin:0 auto;">
-      <p style="font-size:0.92rem; margin-bottom:36px; text-align:center; color:var(--text);">
-        Als begeisterte und award winning Dipl.-Kommunikationsdesignerin bin ich seit über 20 Jahren selbständig als Expertin für authentisches Branding und Marketing.<br><br>
-        Fokus: Konzeption & frische Ideen (visuell & textlich), Visualisierung, Design, Rebranding, Optimierung bestehender Kommunikationsmittel. Instagram™-Design-Uplevel aka <strong style="color:var(--gold);">"REBIRTH"</strong>.
-      </p>
-      <div class="video-wrapper" onclick="this.innerHTML='<iframe width=\'100%\' height=\'450\' src=\'https://www.youtube.com/embed/aFwwHHMCVxc?autoplay=1\' frameborder=\'0\' allow=\'autoplay; encrypted-media\' allowfullscreen style=\'display:block;\'></iframe>'">
-        <img src="https://img.youtube.com/vi/aFwwHHMCVxc/maxresdefault.jpg" alt="Carolin Focht Rebirth – Video" />
-        <div class="play-btn">
-          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
+
+    <!-- Konzeption & Design Textblock (ohne Box, ohne Überschrift) -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-bottom:8px;">
+      <div>
+        <p style="font-size:0.9rem; color:var(--text); margin-bottom:16px;">Als begeisterte und award winning Dipl.-Kommunikationsdesignerin bin ich seit über 20 Jahren selbständig als Expertin für authentisches Branding und Marketing.</p>
+        <p style="font-size:0.9rem; color:var(--text); margin-bottom:16px;">Fokus: Konzeption & frische Ideen (visuell & textlich), Visualisierung, Design, Rebranding, Optimierung bestehender Kommunikationsmittel. Instagram™-Design-Uplevel aka <strong style="color:var(--gold);">"REBIRTH"</strong>.</p>
+        <ul style="list-style:none; margin:16px 0;">
+          <li style="font-size:0.88rem; color:var(--text); padding:8px 0; border-bottom:1px solid rgba(201,168,76,0.1); padding-left:20px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>Dipl.-Kommunikationsdesignerin</li>
+          <li style="font-size:0.88rem; color:var(--text); padding:8px 0; border-bottom:1px solid rgba(201,168,76,0.1); padding-left:20px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>Expertin für authentisches Branding und Marketing</li>
+        </ul>
       </div>
-      <p style="text-align:center; margin-top:24px; font-size:0.82rem; color:var(--muted);">
-        Ich unterstütze: Kreative Unternehmer und Coaches, die durch treffsicheres Branding/Marketing noch sichtbarer werden möchten. Und Unternehmen, die die Welt ein Stück besser machen.<br><br>
-        Kontakt: <a href="mailto:mel@meldorado.de" style="color:var(--gold);">mel(at)meldorado.de</a>
-      </p>
+      <div>
+        <p style="font-size:0.9rem; color:var(--text); margin-bottom:20px;">Ich habe bereits sehr viel für nationale und internationale Kunden gearbeitet. Aktuell unterstütze ich voller Begeisterung:</p>
+        <ul style="list-style:none; margin:0 0 24px;">
+          <li style="font-size:0.88rem; color:var(--text); padding:8px 0; border-bottom:1px solid rgba(201,168,76,0.1); padding-left:20px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>Kreative Unternehmer und Coaches, die durch treffsicheres Branding/Marketing noch sichtbarer werden möchten. (Bei Bedarf gerne kombiniert mit Coaching).</li>
+          <li style="font-size:0.88rem; color:var(--text); padding:8px 0; border-bottom:1px solid rgba(201,168,76,0.1); padding-left:20px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>Und Unternehmen, die die Welt ein Stück besser machen.</li>
+        </ul>
+        <p style="font-size:0.9rem; color:var(--text);">Kontakt unter: <a href="mailto:mel@meldorado.de" style="color:var(--gold);">mel(at)meldorado.de</a></p>
+        <a href="#testimonials" class="btn-outline" style="display:inline-block; margin-top:24px;">&gt; Kunden & Kundenstimmen</a>
+      </div>
+    </div>
+
+    <!-- Video unter dem Textblock -->
+    <div class="video-wrapper" style="margin-top:48px;" onclick="this.innerHTML='<iframe width=\'100%\' height=\'500\' src=\'https://www.youtube.com/embed/aFwwHHMCVxc?autoplay=1\' frameborder=\'0\' allow=\'autoplay; encrypted-media\' allowfullscreen style=\'display:block;\'></iframe>'">
+      <img src="https://img.youtube.com/vi/aFwwHHMCVxc/maxresdefault.jpg" alt="Carolin Focht Rebirth – Video" />
+      <div class="play-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
     </div>
   </div>
 </section>
@@ -1010,77 +1081,85 @@
 <!-- ═══ CLIENTS & AWARDS ═══ -->
 <section id="clients">
   <div class="container">
-    <div class="inner">
-      <div>
+    <!-- Oben: 1/3 Headline + Awards | 2/3 Bildergalerie -->
+    <div class="top-row">
+      <div class="left-col">
         <p class="section-label">Referenzen</p>
         <div class="gold-line left"></div>
         <h2 class="section-title">Awards &amp;<br><em>Clients</em></h2>
-
-        <div class="awards">
-          <img src="https://static.wixstatic.com/media/963b8f_3233523328664eb2b557594ce3dcd47d.png/v1/fill/w_141,h_220,al_c,q_85,enc_avif,quality_auto/963b8f_3233523328664eb2b557594ce3dcd47d.png" alt="German Design Award" />
-          <img src="https://static.wixstatic.com/media/963b8f_67d6a89c61a143b78540fc41f2e08ccd~mv2.png/v1/fill/w_134,h_153,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/BCP_Logo_2013-245x300.png" alt="Best of Corporate Publishing" />
+        <div style="display:inline-flex; gap:20px; align-items:flex-end; background:linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); padding:24px 28px; margin-top:24px;">
+          <img src="https://static.wixstatic.com/media/963b8f_3233523328664eb2b557594ce3dcd47d.png/v1/fill/w_197,h_308,al_c,lg_1,q_85,enc_avif,quality_auto/963b8f_3233523328664eb2b557594ce3dcd47d.png" alt="German Design Award" style="height:120px; width:auto;" />
+          <img src="https://static.wixstatic.com/media/963b8f_67d6a89c61a143b78540fc41f2e08ccd~mv2.png/v1/fill/w_268,h_306,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/BCP_Logo_2013-245x300.png" alt="Best of Corporate Publishing" style="height:110px; width:auto;" />
         </div>
-
-        <div class="portfolio-slider" style="margin-top:40px;">
-          <p class="section-label" style="margin-bottom:16px;">Portfolio</p>
-          <div class="slides">
+      </div>
+      <div>
+        <p class="section-label" style="margin-bottom:16px;">Portfolio</p>
+        <div class="gallery-carousel" id="galleryCarousel">
+          <div class="gallery-track" id="galleryTrack">
             <div class="slide">
-              <img src="https://static.wixstatic.com/media/963b8f_f395b67b5092491394aa0cf1f0de22ee.png/v1/fill/w_200,h_100,al_c,q_85,enc_avif,quality_auto/963b8f_f395b67b5092491394aa0cf1f0de22ee.png" alt="Telekom" />
+              <img src="https://static.wixstatic.com/media/963b8f_f395b67b5092491394aa0cf1f0de22ee.png/v1/fill/w_980,h_457,al_c,q_90,enc_avif,quality_auto/963b8f_f395b67b5092491394aa0cf1f0de22ee.png" alt="Telekom" />
               <div class="caption">Telekom</div>
             </div>
             <div class="slide">
-              <img src="https://static.wixstatic.com/media/963b8f_1f445646cbb24170b684c19ac4d4f3a4~mv2.jpg/v1/fill/w_200,h_100,al_c,q_80,enc_avif,quality_auto/963b8f_1f445646cbb24170b684c19ac4d4f3a4~mv2.jpg" alt="Udo Lindenberg & Beatrice Reszat" />
-              <div class="caption">Udo Lindenberg</div>
+              <img src="https://static.wixstatic.com/media/963b8f_1f445646cbb24170b684c19ac4d4f3a4~mv2.jpg/v1/fill/w_980,h_457,al_c,q_85,enc_avif,quality_auto/963b8f_1f445646cbb24170b684c19ac4d4f3a4~mv2.jpg" alt="Udo Lindenberg & Beatrice Reszat" />
+              <div class="caption">Udo Lindenberg & Beatrice Reszat</div>
             </div>
             <div class="slide">
-              <img src="https://static.wixstatic.com/media/963b8f_188ba9b9a66245af8c496e59914e3b6f.png/v1/fill/w_200,h_100,al_c,q_85,enc_avif,quality_auto/963b8f_188ba9b9a66245af8c496e59914e3b6f.png" alt="Spotify & Telekom" />
-              <div class="caption">Spotify & Telekom</div>
+              <img src="https://static.wixstatic.com/media/963b8f_6f7b4864c4974811be9a48cb8347158c.png/v1/fill/w_980,h_457,al_c,q_90,enc_avif,quality_auto/963b8f_6f7b4864c4974811be9a48cb8347158c.png" alt="Referenz 3" />
+              <div class="caption">Referenz</div>
+            </div>
+            <div class="slide">
+              <img src="https://static.wixstatic.com/media/963b8f_e16593e35921447d8c05fb488d1b1f47.png/v1/fill/w_980,h_457,al_c,q_90,enc_avif,quality_auto/963b8f_e16593e35921447d8c05fb488d1b1f47.png" alt="Referenz 4" />
+              <div class="caption">Referenz</div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div>
-        <p class="section-label" style="margin-bottom:20px;">Kunden (Auswahl)</p>
-        <div class="client-list">
-          <span>ADIDAS ORIGINALS</span>
-          <span>ALCATEL-LUCENT</span>
-          <span>ARCHIPINION</span>
-          <span>BIONORICA</span>
-          <span>BROSE</span>
-          <span>CONTINENTAL</span>
-          <span>DEUTSCHE TELEKOM</span>
-          <span>DIAKONIE</span>
-          <span>DIE JÄGER</span>
-          <span>DIE KRIEGER DES LICHTS</span>
-          <span>DR. ALIUS</span>
-          <span>DR. KARG´S</span>
-          <span>EM EUKAL</span>
-          <span>ERGO DIREKT</span>
-          <span>FREI APOTHEKENKOSMETIK</span>
-          <span>GRUNDIG</span>
-          <span>HELSANA</span>
-          <span>LEMON MODELS</span>
-          <span>LEXMARK</span>
-          <span>LIBELLA</span>
-          <span>MAX BÖGL</span>
-          <span>NETTO</span>
-          <span>PANALPINA</span>
-          <span>PORSCHE DESIGN SPORT</span>
-          <span>REHAU</span>
-          <span>SACHS</span>
-          <span>SATURN</span>
-          <span>SCHAEFFLER GROUP</span>
-          <span>SCHMIDT SPIELE</span>
-          <span>SIEMENS</span>
-          <span>SPOTIFY</span>
-          <span>STAHLGRUBER</span>
-          <span>WÜRTH</span>
-          <span>Y-3</span>
-          <span>ZAPF</span>
-          <span>ETC.</span>
+        <div class="gallery-controls">
+          <button id="galleryPrev" aria-label="Zurück">&#8592;</button>
+          <button id="galleryNext" aria-label="Weiter">&#8594;</button>
         </div>
       </div>
+    </div>
+
+    <!-- Unten: Kundenliste in 3 Spalten -->
+    <p class="section-label" style="margin-bottom:20px;">Kunden (Auswahl)</p>
+    <div class="client-list">
+      <span>ADIDAS ORIGINALS</span>
+      <span>ALCATEL-LUCENT</span>
+      <span>ARCHIPINION</span>
+      <span>BIONORICA</span>
+      <span>BROSE</span>
+      <span>CONTINENTAL</span>
+      <span>DEUTSCHE TELEKOM</span>
+      <span>DIAKONIE</span>
+      <span>DIE JÄGER</span>
+      <span>DIE KRIEGER DES LICHTS</span>
+      <span>DR. ALIUS</span>
+      <span>DR. KARG´S</span>
+      <span>EM EUKAL</span>
+      <span>ERGO DIREKT</span>
+      <span>FREI APOTHEKENKOSMETIK</span>
+      <span>GRUNDIG</span>
+      <span>HELSANA</span>
+      <span>LEMON MODELS</span>
+      <span>LEXMARK</span>
+      <span>LIBELLA</span>
+      <span>MAX BÖGL</span>
+      <span>NETTO</span>
+      <span>PANALPINA</span>
+      <span>PORSCHE DESIGN SPORT</span>
+      <span>REHAU</span>
+      <span>SACHS</span>
+      <span>SATURN</span>
+      <span>SCHAEFFLER GROUP</span>
+      <span>SCHMIDT SPIELE</span>
+      <span>SIEMENS</span>
+      <span>SPOTIFY</span>
+      <span>STAHLGRUBER</span>
+      <span>WÜRTH</span>
+      <span>Y-3</span>
+      <span>ZAPF</span>
+      <span>ETC.</span>
     </div>
   </div>
 </section>
@@ -1090,64 +1169,104 @@
   <div class="container">
     <p class="section-label" style="text-align:center;">Was andere sagen</p>
     <div class="gold-line"></div>
-    <h2 class="section-title" style="text-align:center; margin-bottom:60px;">WHAT PEOPLE SAY.<br><em>Testimonials</em></h2>
+    <h2 class="section-title" style="text-align:center; margin-bottom:48px;">WHAT PEOPLE SAY.<br><em>Testimonials</em></h2>
 
-    <div class="testi-grid">
-      <div class="testi-card featured">
-        <p>Mit sicherem Gefühl für die Identität und das Herz der Marke hat Mel Bartholomae mich in Sachen Sell-In Booklet beraten und selbiges nicht nur mit einer frischen Brise versehen, sondern signifikant optimiert. Das Sell-In Booklet hat dabei vor allem von ihrer Kreativität und Konzeptionsstärke profitiert – mein Team und ich von ihrem unerschütterlichen Enthusiasmus.</p>
-        <div class="author">Kathrin Buchert</div>
-        <div class="role">Global Brand Manager, Porsche Design Sport by adidas</div>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="testi-card">
+          <p>Mit sicherem Gefühl für die Identität und das Herz der Marke hat Mel Bartholomae mich in Sachen Sell-In Booklet beraten und selbiges nicht nur mit einer frischen Brise versehen, sondern signifikant optimiert. Das Sell-In Booklet hat dabei vor allem von ihrer Kreativität und Konzeptionsstärke profitiert – mein Team und ich von ihrem unerschütterlichen Enthusiasmus.</p>
+          <div class="author">Kathrin Buchert</div>
+          <div class="role">Global Brand Manager, Porsche Design Sport by adidas</div>
+        </div>
+        <div class="testi-card">
+          <p>Working with Mel on Y-3 and Porsche Design Sport by adidas is such a pleasure! Her work is always impeccable, both in the esthetic design and quality. She makes our Landing Pages and Social Channels the beginning of a great journey for our E-com visitors. And she has converted impossible deadlines into possible ones – the reason why I call her "Flash". Anyone would be lucky to have this rockstar on their team!</p>
+          <div class="author">Claudia Mosca</div>
+          <div class="role">Style Collaborations Y-3 | Porsche Design Sport by adidas</div>
+        </div>
+        <div class="testi-card">
+          <p>Die Zusammenarbeit mit Mel Bartholomae ist überaus inspirierend. Sie hat unsere Außendarstellung auf ein Level gehoben, das in unserer Branche und darüber hinaus seinesgleichen sucht. Maßnahmenübergreifend verfolgt sie eine beeindruckende visuelle und ästhetische Stringenz. Neben ihrer Konzeptionsstärke und durchdachten Herangehensweise hat sie einen herausragenden Sinn für wirkungsvolle inhaltliche und visuelle Kommunikation.</p>
+          <div class="author">Julia Pültz</div>
+          <div class="role">Praxismanagement & Marketing, Praxisklinik in der Mauthalle / Dr. Jochen Alius</div>
+        </div>
+        <div class="testi-card">
+          <p>Ich bin Autorin und seit vielen Jahren begleitetet Mel mich auf meinem Weg. Zusammen konnten wir bereits mehrere wunderschöne Buchprojekte auf die Beine stellen. Ich könnte mir keine bessere Allrounderin vorstellen. Sie ist engagiert, geduldig und ein absoluter Profi in ihrem Fach. Sie steckt in all ihre Arbeiten unglaublich viel Herz und Liebe.</p>
+          <div class="author">Michelle Schrenk</div>
+          <div class="role">Autorin — Platz 1 BILD-Bestseller-Liste, Kindle-Jahresbestseller 2017</div>
+        </div>
+        <div class="testi-card">
+          <p>Ich habe mich von Anfang an sehr gut aufgehoben gefühlt bei dir. Du bist auf meine Wünsche eingegangen, hast gut zugehört. Du hast es so perfekt umgesetzt! Das, was du geschrieben hast, entsprach zu 100% meinen Vorstellungen. Es ist authentisch und passt perfekt zu mir. Einfach nur wow!</p>
+          <div class="author">G. Männel</div>
+          <div class="role">Lebensberaterin und Wellness-Queen</div>
+        </div>
+        <div class="testi-card">
+          <p>Für unseren Auftritt in den digitalen Medien geht ein besonderer Dank an Mel Bartholomae und Jana Tischer. Sie haben uns hervorragend und verständlich beraten. Und gemeinsam mit uns ein wertvolles Konzept erarbeitet. Wir können es nur empfehlen!</p>
+          <div class="author">Benjamin Lüftner</div>
+          <div class="role">Inhaber, Ergo Direktionsagentur</div>
+        </div>
+        <div class="testi-card">
+          <p>Thanks for your women power and your encouragement!</p>
+          <div class="author">Andrea Kielmann</div>
+          <div class="role">Inhaberin, lemon models</div>
+        </div>
+        <div class="testi-card">
+          <p>Sehr kreativ, sehr zuverlässig, immer positiv und freundlich. Und Ideen, die begeistern.</p>
+          <div class="author">Martina Wiegel</div>
+          <div class="role">Geschäftsführerin, Wiegel Arbeitskultur</div>
+        </div>
+        <div class="testi-card">
+          <p>Ja, sehr schön. Das gefällt mir. Du hast Talent. Yeah.</p>
+          <div class="author">Udo Lindenberg</div>
+          <div class="role">Panik-Präsident</div>
+        </div>
       </div>
-      <div class="testi-card">
-        <p>Ja, sehr schön. Das gefällt mir. Du hast Talent. Yeah.</p>
-        <div class="author">Udo Lindenberg</div>
-        <div class="role">Panik-Präsident</div>
-      </div>
-      <div class="testi-card featured">
-        <p>Working with Mel on Y-3 and Porsche Design Sport by adidas is such a pleasure! Her work is always impeccable, both in the esthetic design and quality. I particularly enjoy mocking up our digital channels for Y-3 where Mel uses our campaign images to create an amazing mix of our stories in our websites. She makes our Landing Pages and Social Channels the beginning of a great journey for our E-com visitors. And she has converted impossible deadlines into possible ones – the reason why I call her "Flash". Anyone would be lucky to have this rockstar on their team!</p>
-        <div class="author">Claudia Mosca</div>
-        <div class="role">Style Collaborations Y-3 | Porsche Design Sport by adidas</div>
-      </div>
-      <div class="testi-card">
-        <p>Ich bin Autorin und seit vielen Jahren begleitetet Mel mich auf meinem Weg. Zusammen konnten wir bereits mehrere wunderschöne Buchprojekte auf die Beine stellen. Ich könnte mir keine bessere Allrounderin vorstellen. Sie ist engagiert, geduldig und ein absoluter Profi in ihrem Fach. Sie steckt in all ihre Arbeiten unglaublich viel Herz und Liebe.</p>
-        <div class="author">Michelle Schrenk</div>
-        <div class="role">Autorin — Platz 1 BILD-Bestseller-Liste, Kindle-Jahresbestseller 2017</div>
-      </div>
-      <div class="testi-card">
-        <p>Die Zusammenarbeit mit Mel Bartholomae ist überaus inspirierend. Sie hat unsere Außendarstellung auf ein Level gehoben, das in unserer Branche und darüber hinaus seinesgleichen sucht. Maßnahmenübergreifend verfolgt sie eine beeindruckende visuelle und ästhetische Stringenz.</p>
-        <div class="author">Julia Pültz</div>
-        <div class="role">Praxismanagement & Marketing, Praxisklinik in der Mauthalle / Dr. Jochen Alius</div>
-      </div>
-      <div class="testi-card">
-        <p>Ich habe mich von Anfang an sehr gut aufgehoben gefühlt bei dir. Du bist auf meine Wünsche eingegangen, hast gut zugehört. Du hast es so perfekt umgesetzt! Das, was du geschrieben hast, entsprach zu 100% meinen Vorstellungen. Es ist authentisch und passt perfekt zu mir. Einfach nur wow!</p>
-        <div class="author">G. Männel</div>
-        <div class="role">Lebensberaterin und Wellness-Queen</div>
-      </div>
-      <div class="testi-card">
-        <p>Für unseren Auftritt in den digitalen Medien geht ein besonderer Dank an Mel Bartholomae und Jana Tischer. Sie haben uns hervorragend und verständlich beraten. Und gemeinsam mit uns ein wertvolles Konzept erarbeitet. Wir können es nur empfehlen!</p>
-        <div class="author">Benjamin Lüftner</div>
-        <div class="role">Inhaber, Ergo Direktionsagentur</div>
-      </div>
-      <div class="testi-card">
-        <p>Thanks for your women power and your encouragement!</p>
-        <div class="author">Andrea Kielmann</div>
-        <div class="role">Inhaberin, lemon models</div>
-      </div>
-      <div class="testi-card">
-        <p>Sehr kreativ, sehr zuverlässig, immer positiv und freundlich. Und Ideen, die begeistern.</p>
-        <div class="author">Martina Wiegel</div>
-        <div class="role">Geschäftsführerin, Wiegel Arbeitskultur</div>
-      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn" aria-label="Zurück">&#8592;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-btn" id="nextBtn" aria-label="Weiter">&#8594;</button>
     </div>
 
     <!-- Coaching Testimonials Screenshot -->
     <div class="coaching-testis">
       <p class="section-label" style="text-align:center; margin-bottom:24px;">Coaching Testimonials</p>
       <div class="gold-line"></div>
-      <img src="https://static.wixstatic.com/media/963b8f_148a6ed642eb4ffdb80efde78e4f6bb0~mv2.jpg/v1/fill/w_810,h_1515,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/meldorado-web-testis_lang_edited.jpg" alt="Coaching Testimonials" style="max-width:480px; width:100%; margin:0 auto; display:block;" />
+      <img src="https://static.wixstatic.com/media/963b8f_148a6ed642eb4ffdb80efde78e4f6bb0~mv2.jpg/v1/fill/w_810,h_1515,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/meldorado-web-testis_lang_edited.jpg" alt="Coaching Testimonials" />
     </div>
   </div>
 </section>
+
+<script>
+  (function() {
+    const track = document.getElementById('carouselTrack');
+    const dotsContainer = document.getElementById('carouselDots');
+    const cards = track.querySelectorAll('.testi-card');
+    let current = 0;
+    const total = cards.length;
+
+    // Build dots
+    cards.forEach((_, i) => {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(n) {
+      current = (n + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dotsContainer.querySelectorAll('span').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+
+    // Auto-advance every 6s
+    setInterval(() => goTo(current + 1), 6000);
+  })();
+</script>
 
 <!-- ═══ CONTACT ═══ -->
 <section id="contact">
@@ -1206,5 +1325,19 @@
   <p class="footer-copy">© Melanie Bartholomae-Muehle · mel(at)meldorado.de</p>
 </footer>
 
+<script>
+  (function() {
+    const track = document.getElementById('galleryTrack');
+    const slides = track.querySelectorAll('.slide');
+    let cur = 0;
+    const tot = slides.length;
+    function goTo(n) {
+      cur = (n + tot) % tot;
+      track.style.transform = `translateX(-${cur * 100}%)`;
+    }
+    document.getElementById('galleryPrev').addEventListener('click', () => goTo(cur - 1));
+    document.getElementById('galleryNext').addEventListener('click', () => goTo(cur + 1));
+  })();
+</script>
 </body>
 </html>
